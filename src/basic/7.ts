@@ -3,5 +3,8 @@ interface Page{
     likes:number;
     accounts:string[];
     status:'open' | 'close';
-    details?:object;
+    details?:{
+        createdAt: Date;
+        updatedAt: Date;
+    };
 }

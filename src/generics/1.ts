@@ -1,13 +1,8 @@
 import axios from 'axios';
 
-interface Data {
-  id: number;
-  name: string;
-}
-
-async function fetchData(url: string): Promise<Data> {
+async function fetchData<T extends string>(url: T): Promise<T>{
   try {
-    const response = await axios.get<Data>(url);
+    const response = await axios.get(url);
     return response.data;
   } catch (error) {
     throw new Error(`Error fetching from ${url}: ${error}`);
